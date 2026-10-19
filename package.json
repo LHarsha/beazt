@@ -1,0 +1,10 @@
+{
+  "name": "beazt-studio-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "beazt — independent video editing & motion studio website",
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "python3 -m http.server 3000"
+  }
+}

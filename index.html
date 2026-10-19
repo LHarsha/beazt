@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>beazt — independent video editing &amp; motion studio</title>
+  <meta name="description" content="beazt is an independent video editing, motion graphics, and thumbnail studio led by Umang. Long-form YouTube episodes, multi-cam podcasts, and 9:16 Reels delivered in 24–48 hours." />
+  <meta property="og:title" content="beazt — independent video editing &amp; motion studio" />
+  <meta property="og:description" content="Long-form YouTube editing, motion graphics, 9:16 Reels, and thumbnail packaging for creators and brands. 24–48h standard turnaround." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#111110" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "beazt",
+    "url": "https://beaztmotions.vercel.app",
+    "email": "contact@beaztmotions.org",
+    "telephone": "+91-7983652995",
+    "founder": {
+      "@type": "Person",
+      "name": "Umang"
+    },
+    "sameAs": [
+      "https://www.instagram.com/beaztmotions",
+      "https://www.linkedin.com/company/beaztmotions"
+    ],
+    "description": "Independent post-production and creative studio specializing in long-form YouTube editing, motion design, vertical Reels, and thumbnail packaging."
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
+    window.tailwind = window.tailwind || {}; window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F4F1EA',
+            paperLight: '#FAF8F4',
+            paperMuted: '#E8E3D8',
+            ink: '#121210',
+            inkMuted: '#4E4B46',
+            inkSubtle: '#75716A',
+            cinema: '#111110',
+            cinemaElevated: '#181816',
+            cinemaCard: '#1F1F1C',
+            cinemaBorder: '#2C2B28',
+            hairline: '#DAD4C8',
+            signal: '#D9381E',
+            signalHover: '#B82B14',
+            trackEmerald: '#15803D'
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+    <link rel="stylesheet" href="css/styles.css" onerror="this.href='styles.css'" />
+
+</head>
+<body class="min-h-screen flex flex-col selection:bg-signal selection:text-white">
+
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-ink focus:text-paper focus:px-4 focus:py-2.5 focus:text-xs">
+    Skip to main content
+  </a>
+
+  <!-- STICKY STUDIO HEADER (Clean, lowercase identity; no robotic numbering or fake REC ticker) -->
+  <header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-sm border-b border-hairline">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between gap-4">
+      <!-- Lowercase Brand Wordmark: beazt -->
+      <div class="flex items-center gap-6">
+        <button type="button" data-nav-view="overview" class="nav-view-trigger text-left group focus:outline-none py-1 flex items-baseline gap-3">
+          <span class="font-display font-bold text-2xl sm:text-[28px] tracking-tighter text-ink lowercase">beazt<span class="text-signal">.</span></span>
+          <span class="hidden sm:inline text-xs text-inkMuted font-medium tracking-normal">
+            post-production &amp; motion studio
+          </span>
+        </button>
+      </div>
+
+      <!-- Desktop Navigation Links + Studio Submenu -->
+      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center gap-1">
+        <button type="button" data-nav-view="overview" class="nav-view-trigger px-3.5 py-2 text-sm font-medium text-ink underline decoration-signal decoration-2 underline-offset-8 transition-colors">
+          Index
+        </button>
+        <button type="button" data-nav-view="work" class="nav-view-trigger px-3.5 py-2 text-sm font-medium text-inkMuted hover:text-ink transition-colors">
+          Work
+        </button>
+        <button type="button" data-nav-view="services" class="nav-view-trigger px-3.5 py-2 text-sm font-medium text-inkMuted hover:text-ink transition-colors">
+          Capabilities
+        </button>
+
+        <!-- Accessible Studio / About Dropdown -->
+        <div class="relative" id="about-dropdown-wrapper">
+          <button
+            type="button"
+            id="about-dropdown-btn"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="about-dropdown-menu"
+            class="px-3.5 py-2 text-sm font-medium text-inkMuted hover:text-ink transition-colors inline-flex items-center gap-1.5"
+          >
+            <span>Studio</span>
+            <span id="about-dropdown-caret" class="text-xs" aria-hidden="true">▾</span>
+          </button>
+          <div
+            id="about-dropdown-menu"
+            role="menu"
+            aria-label="Studio Submenu"
+            class="hidden absolute left-0 mt-1 w-56 bg-paperLight border border-ink shadow-md py-1.5 z-50 divide-y divide-hairline"
+          >
+            <button type="button" role="menuitem" data-dropdown-target="sec-about" class="about-dropdown-item w-full text-left px-4 py-2.5 text-sm font-medium text-ink hover:bg-paperMuted flex items-center justify-between">
+              <span>Client notes</span>
+              <span class="text-signal">→</span>
+            </button>
+            <button type="button" role="menuitem" data-dropdown-target="sec-team" class="about-dropdown-item w-full text-left px-4 py-2.5 text-sm font-medium text-ink hover:bg-paperMuted flex items-center justify-between">
+              <span>Join the roster</span>
+              <span class="text-signal">→</span>
+            </button>
+            <button type="button" role="menuitem" data-dropdown-target="sec-faq" class="about-dropdown-item w-full text-left px-4 py-2.5 text-sm font-medium text-ink hover:bg-paperMuted flex items-center justify-between">
+              <span>Process &amp; FAQ</span>
+              <span class="text-signal">→</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" data-nav-view="contact" class="nav-view-trigger px-3.5 py-2 text-sm font-medium text-inkMuted hover:text-ink transition-colors">
+          Contact
+        </button>
+      </nav>
+
+      <!-- Right CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="mailto:contact@beaztmotions.org" class="hidden xl:inline text-xs font-mono text-inkMuted hover:text-ink">
+          contact@beaztmotions.org
+        </a>
+        <button type="button" data-nav-view="booking" class="nav-view-trigger min-h-[44px] bg-ink hover:bg-signal text-paper text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 transition-colors flex items-center gap-2">
+          <span>Book a call</span>
+          <span aria-hidden="true">→</span>
+        </button>
+        <button type="button" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-nav-drawer" aria-label="Toggle Menu" class="lg:hidden min-w-[44px] min-h-[44px] p-2.5 border border-hairline text-ink hover:bg-paperMuted flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path id="mobile-menu-icon" stroke-linecap="square" stroke-width="1.75" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-hairline bg-paper px-4 pt-3 pb-6 space-y-1">
+      <button type="button" data-nav-view="overview" class="nav-view-trigger w-full min-h-[44px] text-left px-3 py-2.5 text-sm font-semibold text-ink bg-paperMuted">
+        Index (Full Studio View)
+      </button>
+      <button type="button" data-nav-view="work" class="nav-view-trigger w-full min-h-[44px] text-left px-3 py-2.5 text-sm font-medium text-inkMuted hover:text-ink">
+        Selected Work &amp; Reel
+      </button>
+      <button type="button" data-nav-view="services" class="nav-view-trigger w-full min-h-[44px] text-left px-3 py-2.5 text-sm font-medium text-inkMuted hover:text-ink">
+        Capabilities &amp; Turnaround Estimator
+      </button>
+      <div class="pl-3 border-l-2 border-signal space-y-1 py-1">
+        <span class="block px-3 text-xs font-mono uppercase tracking-wider text-inkSubtle">Studio</span>
+        <button type="button" data-dropdown-target="sec-about" class="about-dropdown-item w-full min-h-[42px] text-left px-3 py-2 text-sm text-ink hover:text-signal">
+          Client notes
+        </button>
+        <button type="button" data-dropdown-target="sec-team" class="about-dropdown-item w-full min-h-[42px] text-left px-3 py-2 text-sm text-ink hover:text-signal">
+          Join the roster
+        </button>
+        <button type="button" data-dropdown-target="sec-faq" class="about-dropdown-item w-full min-h-[42px] text-left px-3 py-2 text-sm text-ink hover:text-signal">
+          Process &amp; FAQ
+        </button>
+      </div>
+      <button type="button" data-nav-view="contact" class="nav-view-trigger w-full min-h-[44px] text-left px-3 py-2.5 text-sm font-medium text-inkMuted hover:text-ink">
+        Contact
+      </button>
+      <button type="button" data-nav-view="booking" class="nav-view-trigger w-full min-h-[44px] text-left px-3.5 py-2.5 text-sm bg-signal text-white font-semibold">
+        Book a consultation call →
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" class="flex-grow">
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 1: ASYMMETRIC STUDIO HERO & PLAYABLE SHOWREEL                 -->
+    <!-- ===================================================================== -->
+    <section id="sec-hero" class="view-section border-b border-hairline bg-paper pt-8 pb-14 sm:py-16 lg:py-20">
+      <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+
+        <!-- Asymmetric 5 / 7 Editorial Split -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+          <!-- Left 5 Columns: Direct Studio Statement -->
+          <div class="lg:col-span-5 flex flex-col justify-between lg:pt-2">
+            <div>
+              <div class="flex items-center gap-2.5 text-xs font-mono text-inkMuted mb-5">
+                <span class="w-2 h-2 rounded-full bg-signal inline-block" aria-hidden="true"></span>
+                <span>24–48h standard turnaround · led by Umang</span>
+              </div>
+
+              <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[52px] text-ink leading-[1.05] mb-6">
+                Post-production for creators and brands that measure retention.
+              </h1>
+
+              <p class="text-base sm:text-[17px] text-inkMuted leading-relaxed mb-8">
+                <strong class="text-ink font-semibold">beazt</strong> is an independent editing and motion studio. We cut long-form YouTube episodes, multi-cam podcasts, 9:16 Reels, and high-CTR thumbnails—shaping raw footage into tight, repeatable channel formats without losing the creator's voice.
+              </p>
+
+              <!-- Primary & Secondary Actions -->
+              <div class="flex flex-wrap items-center gap-3 mb-10">
+                <button type="button" data-nav-view="booking" class="nav-view-trigger min-h-[48px] bg-signal hover:bg-signalHover text-white text-sm font-semibold px-6 py-3.5 transition-colors flex items-center gap-2.5">
+                  <span>Book your first edit</span>
+                  <span aria-hidden="true">→</span>
+                </button>
+                <button type="button" data-scroll-target="sec-portfolio" class="scroll-trigger min-h-[48px] bg-transparent hover:bg-paperMuted text-ink border border-ink/40 text-sm font-semibold px-6 py-3.5 transition-colors">
+                  Selected work ↓
+                </button>
+              </div>
+            </div>
+
+            <!-- Quiet Two-Row Studio Facts (Varied widths, no boxed cards) -->
+            <dl class="border-t border-hairline pt-6 grid grid-cols-2 gap-y-5 gap-x-6 text-sm">
+              <div>
+                <dt class="text-xs font-mono text-inkSubtle uppercase">Turnaround</dt>
+                <dd class="font-display font-semibold text-lg text-ink mt-0.5">24–48 hours</dd>
+              </div>
+              <div>
+                <dt class="text-xs font-mono text-inkSubtle uppercase">Deliverables</dt>
+                <dd class="font-display font-semibold text-lg text-ink mt-0.5">16:9, 9:16 &amp; PSD</dd>
+              </div>
+              <div class="col-span-2 pt-4 border-t border-hairline/70 flex items-center justify-between gap-4">
+                <div>
+                  <dt class="text-xs font-mono text-inkSubtle uppercase">Featured creator partner</dt>
+                  <dd class="text-sm text-ink font-medium mt-0.5">
+                    <a href="https://www.gauravsharmamusic.com/" target="_blank" rel="noopener noreferrer" class="underline decoration-signal hover:text-signal font-semibold">Gaurav Sharma</a> (210k YouTube subscribers)
+                  </dd>
+                </div>
+                <a href="https://wa.me/917983652995" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-ink underline hover:text-signal shrink-0">
+                  WhatsApp desk ↗
+                </a>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Right 7 Columns: Large-Scale Finished-Work Reel Player -->
+          <div class="lg:col-span-7">
+            <div class="bg-cinema text-paper p-3 sm:p-4 border border-ink">
+              <!-- Playable HTML5 Video Frame of Actual beazt Finished Cuts -->
+              <div id="hero-video-wrapper" class="relative aspect-16-9 bg-cinemaElevated overflow-hidden group">
+                <video
+                  id="hero-showreel-video"
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" src="assets/video/showreel.mp4" data-bm-src="reel"
+                  poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" poster="assets/images/slot-04.jpg" data-bm-poster="p4"
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  class="w-full h-full object-cover"
+                ></video>
+                <img
+                  id="hero-monitor-img"
+                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" src="assets/images/slot-04.jpg" data-bm-src="p4"
+                  alt="beazt finished creator edit frame"
+                  class="hidden w-full h-full object-cover"
+                />
+
+                <!-- Restrained Editorial Caption Overlay -->
+                <div id="safe-guides-overlay" class="absolute inset-0 pointer-events-none flex flex-col justify-between p-3.5 sm:p-5 bg-gradient-to-t from-black/80 via-transparent to-black/35">
+                  <div class="flex justify-between items-center font-mono text-xs text-stone-200">
+                    <span id="hero-client-pill" class="bg-black/75 px-2.5 py-1 border border-white/15">
+                      beazt reel — finished client cuts
+                    </span>
+                    <span id="hero-tc-counter" class="bg-black/75 px-2.5 py-1 timecode-pill">00:00:04:12</span>
+                  </div>
+                  <div class="flex items-end justify-between gap-4">
+                    <div>
+                      <p id="reel-chapter-code" class="font-mono text-xs text-signal uppercase tracking-wider">01 / Gaurav Sharma (210k subscribers)</p>
+                      <p id="hero-monitor-title" class="font-display font-bold text-lg sm:text-xl text-white leading-snug mt-0.5">
+                        Dual-Guitar Acoustic Comparison &amp; Multi-Mic Sync
+                      </p>
+                      <p id="hero-monitor-credit" class="text-xs text-stone-300 mt-0.5">
+                        Edited by Umang &amp; team · <span id="reel-aspect-badge" class="font-mono">16:9 · 24fps</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Minimalist Transport & Chapter Selector Bar -->
+              <div class="mt-3 pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-cinemaBorder">
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    id="hero-play-toggle"
+                    class="min-h-[40px] px-4 py-1.5 bg-signal hover:bg-signalHover text-white text-xs font-semibold tracking-wide transition-colors flex items-center gap-2"
+                  >
+                    <span id="hero-play-icon">▶</span>
+                    <span id="hero-play-label">Play reel</span>
+                  </button>
+                  <button
+                    type="button"
+                    id="hero-open-modal-btn"
+                    class="min-h-[40px] px-3.5 py-1.5 border border-cinemaBorder hover:border-stone-400 text-xs text-stone-200 transition-colors"
+                  >
+                    Watch with controls ↗
+                  </button>
+                  <span id="hero-playback-status" class="hidden sm:inline font-mono text-xs text-stone-400 ml-1">6 cuts · 00:09 loop</span>
+                </div>
+
+                <!-- 4 Direct Chapter Jump Pills -->
+                <div class="flex flex-wrap items-center gap-1.5 font-mono text-xs">
+                  <button type="button" data-reel-idx="0" class="reel-chapter-btn min-h-[38px] px-2.5 py-1 border border-signal bg-cinemaCard text-white transition-colors">
+                    01 Guitar
+                  </button>
+                  <button type="button" data-reel-idx="1" class="reel-chapter-btn min-h-[38px] px-2.5 py-1 border border-cinemaBorder hover:border-stone-500 text-stone-300 transition-colors">
+                    02 Vlog
+                  </button>
+                  <button type="button" data-reel-idx="2" class="reel-chapter-btn min-h-[38px] px-2.5 py-1 border border-cinemaBorder hover:border-stone-500 text-stone-300 transition-colors">
+                    03 Podcast
+                  </button>
+                  <button type="button" data-reel-idx="3" class="reel-chapter-btn min-h-[38px] px-2.5 py-1 border border-cinemaBorder hover:border-stone-500 text-stone-300 transition-colors">
+                    04 Hook
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 2: PORTFOLIO CENTREPIECE (ASYMMETRIC EDITORIAL WORK INDEX)    -->
+    <!-- ===================================================================== -->
+    <section id="sec-portfolio" class="view-section cinema-surface border-b border-cinemaBorder py-16 sm:py-24">
+      <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+
+        <!-- Asymmetric Header: Left Title, Right Offset Editorial Context -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-10 border-b border-cinemaBorder items-end">
+          <div class="lg:col-span-7">
+            <p class="font-mono text-xs text-signal uppercase tracking-wider mb-2">Selected work</p>
+            <h2 class="font-display font-bold text-3xl sm:text-5xl text-paper tracking-tight leading-[1.08]">
+              Finished edits &amp; format studies.
+            </h2>
+          </div>
+          <div class="lg:col-span-5">
+            <p class="text-stone-300 text-sm sm:text-base leading-relaxed">
+              Every project below is either a real edit produced by <strong class="text-white font-semibold">beazt</strong> or a clearly labeled format sample demonstrating our grading and framing specs. Click any frame to play the cut.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter & View Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-5 border-b border-cinemaBorder">
+          <div class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter projects by format">
+            <button type="button" data-cat-filter="all" class="cat-filter-btn min-h-[40px] px-3.5 py-1.5 text-xs font-medium border border-signal bg-signal text-white transition-colors">
+              All formats
+            </button>
+            <button type="button" data-cat-filter="youtube" class="cat-filter-btn min-h-[40px] px-3.5 py-1.5 text-xs font-medium border border-cinemaBorder bg-cinemaElevated text-stone-300 hover:text-white transition-colors">
+              Long-form YouTube
+            </button>
+            <button type="button" data-cat-filter="podcast" class="cat-filter-btn min-h-[40px] px-3.5 py-1.5 text-xs font-medium border border-cinemaBorder bg-cinemaElevated text-stone-300 hover:text-white transition-colors">
+              Podcast &amp; multi-cam
+            </button>
+            <button type="button" data-cat-filter="reels" class="cat-filter-btn min-h-[40px] px-3.5 py-1.5 text-xs font-medium border border-cinemaBorder bg-cinemaElevated text-stone-300 hover:text-white transition-colors">
+              9:16 Reels &amp; Shorts
+            </button>
+            <button type="button" data-cat-filter="motion" class="cat-filter-btn min-h-[40px] px-3.5 py-1.5 text-xs font-medium border border-cinemaBorder bg-cinemaElevated text-stone-300 hover:text-white transition-colors">
+              Music &amp; packaging
+            </button>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-1.5">
+            <button type="button" data-portfolio-mode="all" class="portfolio-mode-btn min-h-[38px] px-3 py-1.5 font-mono text-xs bg-cinemaCard border border-stone-500 text-white">
+              All (<span id="portfolio-count-label">10</span>)
+            </button>
+            <button type="button" data-portfolio-mode="captured" class="portfolio-mode-btn min-h-[38px] px-3 py-1.5 font-mono text-xs text-stone-400 hover:text-white border border-transparent">
+              beazt client cuts (6)
+            </button>
+            <button type="button" data-portfolio-mode="studies" class="portfolio-mode-btn min-h-[38px] px-3 py-1.5 font-mono text-xs text-stone-400 hover:text-white border border-transparent">
+              Format samples (4)
+            </button>
+          </div>
+        </div>
+
+        <!-- Asymmetric Staggered Portfolio Layout (Populated by JS) -->
+        <div id="portfolio-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-x-10 mt-10 items-start"></div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 3: CAPABILITIES & INTERACTIVE TURNAROUND ESTIMATOR            -->
+    <!-- ===================================================================== -->
+    <section id="sec-services" class="view-section bg-paper border-b border-hairline py-16 sm:py-24">
+      <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+
+        <!-- Asymmetric 4 / 8 Layout: Left Column Context, Right Column Editorial Index + Estimator -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+          <!-- Left 4 Columns: Studio Capabilities Intro -->
+          <div class="lg:col-span-4 lg:sticky lg:top-28">
+            <p class="font-mono text-xs text-signal uppercase tracking-wider mb-2">Capabilities</p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink leading-tight mb-4">
+              Four disciplines, one post-production desk.
+            </h2>
+            <p class="text-inkMuted text-base leading-relaxed mb-6">
+              Instead of handing your raw footage to disconnected freelancers, <strong class="text-ink font-semibold">beazt</strong> pairs long-form narrative editors, After Effects motion designers, and thumbnail artists under one turnaround schedule.
+            </p>
+            <div class="pt-5 border-t border-hairline text-xs font-mono text-inkMuted space-y-1.5">
+              <div>· Standard delivery: 24–48 hours</div>
+              <div>· Handoff: Google Drive, Frame.io, Dropbox</div>
+              <div>· Select any discipline to preview scope →</div>
+            </div>
+          </div>
+
+          <!-- Right 8 Columns: Hairline-Divided Capabilities Index + Live Scope Estimator -->
+          <div class="lg:col-span-8 space-y-10">
+
+            <!-- Editorial Capabilities List (No nested boxed sub-cards) -->
+            <div id="service-pillars-list" class="border-t-2 border-ink divide-y divide-hairline">
+
+              <!-- 01 Video Editing -->
+              <article data-service-id="editing" class="service-card py-6 sm:py-7 px-4 sm:px-6 bg-paperLight border-l-4 border-l-signal cursor-pointer transition-colors">
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                  <div class="flex items-baseline gap-3">
+                    <span class="font-mono text-xs text-signal font-semibold">01</span>
+                    <h3 class="font-display font-bold text-xl sm:text-2xl text-ink">Long-form video editing</h3>
+                  </div>
+                  <span class="font-mono text-xs text-inkMuted">16:9 · 4K Rec.709 · 24–48h</span>
+                </div>
+                <p class="text-inkMuted text-sm sm:text-base max-w-[62ch] leading-relaxed ml-0 sm:ml-7">
+                  Retention-focused assembly for YouTube episodes, creator vlogs, podcasts, and documentaries. Includes multi-mic audio sync, breath and dead-air trimming, rhythm pacing, and natural skin-tone color correction.
+                </p>
+              </article>
+
+              <!-- 02 Motion Graphics -->
+              <article data-service-id="motion" class="service-card py-6 sm:py-7 px-4 sm:px-6 hover:bg-paperLight/70 border-l-4 border-l-transparent cursor-pointer transition-colors">
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                  <div class="flex items-baseline gap-3">
+                    <span class="font-mono text-xs text-inkSubtle">02</span>
+                    <h3 class="font-display font-bold text-xl sm:text-2xl text-ink">Motion graphics &amp; title systems</h3>
+                  </div>
+                  <span class="font-mono text-xs text-inkMuted">60fps After Effects · Custom rigs</span>
+                </div>
+                <p class="text-inkMuted text-sm sm:text-base max-w-[62ch] leading-relaxed ml-0 sm:ml-7">
+                  Custom lower thirds, kinetic typography, map callouts, and data overlays built in After Effects to clarify complex points and hold visual attention through mid-roll transitions.
+                </p>
+              </article>
+
+              <!-- 03 YouTube / Instagram Reels -->
+              <article data-service-id="reels" class="service-card py-6 sm:py-7 px-4 sm:px-6 hover:bg-paperLight/70 border-l-4 border-l-transparent cursor-pointer transition-colors">
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                  <div class="flex items-baseline gap-3">
+                    <span class="font-mono text-xs text-inkSubtle">03</span>
+                    <h3 class="font-display font-bold text-xl sm:text-2xl text-ink">YouTube Shorts &amp; Instagram Reels</h3>
+                  </div>
+                  <span class="font-mono text-xs text-inkMuted">9:16 vertical · 24h turnaround</span>
+                </div>
+                <p class="text-inkMuted text-sm sm:text-base max-w-[62ch] leading-relaxed ml-0 sm:ml-7">
+                  Scroll-stopping vertical cuts engineered around the first three seconds. We reframe 16:9 masters into 9:16 safe zones with animated captions, speed ramps, and sound-design accents.
+                </p>
+              </article>
+
+              <!-- 04 Thumbnail Designing -->
+              <article data-service-id="thumbnails" class="service-card py-6 sm:py-7 px-4 sm:px-6 hover:bg-paperLight/70 border-l-4 border-l-transparent cursor-pointer transition-colors">
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                  <div class="flex items-baseline gap-3">
+                    <span class="font-mono text-xs text-inkSubtle">04</span>
+                    <h3 class="font-display font-bold text-xl sm:text-2xl text-ink">Thumbnail design &amp; packaging</h3>
+                  </div>
+                  <span class="font-mono text-xs text-inkMuted">1280×720 PNG + layered PSD</span>
+                </div>
+                <p class="text-inkMuted text-sm sm:text-base max-w-[62ch] leading-relaxed ml-0 sm:ml-7">
+                  High-contrast YouTube thumbnail concepts designed for mobile and desktop home feeds—combining clean subject separation, rim lighting, and legible three-word focal hierarchy.
+                </p>
+              </article>
+
+            </div>
+
+            <!-- Interactive Scope & Turnaround Estimator Split Box -->
+            <div class="border border-ink bg-cinema text-paper p-6 sm:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <!-- Finished Frame Preview -->
+              <div class="md:col-span-5">
+                <div class="flex items-center justify-between font-mono text-xs text-stone-300 mb-2">
+                  <span id="service-preview-tag" class="text-signal">01 / Long-form editing</span>
+                  <span id="service-preview-source">beazt cut</span>
+                </div>
+                <div class="aspect-16-9 overflow-hidden border border-cinemaBorder bg-cinemaElevated">
+                  <img
+                    id="service-preview-img"
+                    src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" src="assets/images/slot-03.jpg" data-bm-src="p3"
+                    alt="Finished studio edit by beazt"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <p id="service-preview-caption" class="font-mono text-xs text-stone-300 mt-2">
+                  Multi-cam sync, dialogue polish &amp; studio grade
+                </p>
+              </div>
+
+              <!-- Interactive Turnaround Calculator -->
+              <div class="md:col-span-7 space-y-4">
+                <div class="flex items-center justify-between border-b border-cinemaBorder pb-2.5">
+                  <h4 class="font-display font-bold text-lg text-white">Turnaround &amp; scope estimator</h4>
+                  <span class="font-mono text-xs text-stone-400">Live estimate</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <label for="calc-service-type" class="block text-stone-300 font-mono mb-1">Deliverable format</label>
+                    <select id="calc-service-type" class="w-full min-h-[42px] bg-cinemaElevated border border-cinemaBorder text-white px-3 py-2 text-xs">
+                      <option value="longform">Long-Form YouTube Edit (8–20 min)</option>
+                      <option value="reels">Short-Form Reels / Shorts Batch (3 × 60s)</option>
+                      <option value="motion">Motion-Heavy Explainer / Documentary</option>
+                      <option value="thumbnail">Custom Thumbnail Package (3 Variants)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="calc-footage-slider" class="flex justify-between text-stone-300 font-mono mb-1">
+                      <span>Raw footage</span>
+                      <span id="calc-footage-val" class="text-white font-semibold">45 mins</span>
+                    </label>
+                    <input id="calc-footage-slider" type="range" min="10" max="180" step="5" value="45" class="w-full h-2 accent-signal cursor-pointer mt-2" />
+                  </div>
+                </div>
+
+                <div class="p-3.5 bg-cinemaElevated border border-cinemaBorder flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                  <div>
+                    <span class="text-stone-400 block">First cut window</span>
+                    <span id="calc-turnaround-out" class="text-signal font-semibold text-sm">24–48 Hours</span>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-stone-400 block">Deliverables</span>
+                    <span id="calc-deliverables-out" class="text-white">16:9 Master + Audio Mix + Color</span>
+                  </div>
+                </div>
+
+                <button type="button" id="btn-calc-book" class="w-full min-h-[44px] bg-signal hover:bg-signalHover text-white text-xs font-semibold uppercase tracking-wider py-3 transition-colors">
+                  Book this scope for consultation →
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 4: CLIENT NOTES & STUDIO ROSTER                               -->
+    <!-- ===================================================================== -->
+    <section id="sec-about" class="view-section border-b border-hairline py-16 sm:py-24 bg-paperLight">
+      <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+
+        <!-- Part A: Client Voices (Asymmetric Editorial Pull-Quote + Archive Index) -->
+        <div class="pb-20 border-b border-hairline">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <p class="font-mono text-xs text-signal uppercase tracking-wider mb-2">Client notes</p>
+              <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink">
+                Trusted by creators who publish weekly.
+              </h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" id="test-prev-btn" aria-label="Previous testimonial" class="min-h-[42px] px-4 py-2 border border-ink/30 hover:bg-ink hover:text-paper text-xs font-mono transition-colors">
+                ← Prev
+              </button>
+              <span id="test-counter" class="font-mono text-xs px-3 text-inkMuted">01 / 03</span>
+              <button type="button" id="test-next-btn" aria-label="Next testimonial" class="min-h-[42px] px-4 py-2 border border-ink/30 hover:bg-ink hover:text-paper text-xs font-mono transition-colors">
+                Next →
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <!-- Left 8 Columns: Unboxed Editorial Pull-Quote -->
+            <div class="lg:col-span-8 bg-paper p-6 sm:p-10 border-l-4 border-l-signal">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+                <span id="test-verification-badge" class="font-mono text-xs px-2.5 py-1 bg-ink text-paper">
+                  Verified creator client · 210k YouTube subscribers
+                </span>
+                <span id="test-context-note" class="font-mono text-xs text-inkMuted">
+                   Portfolio cuts BM-01 &amp; BM-02
+                </span>
+              </div>
+
+              <blockquote id="test-quote-text" class="font-display font-medium text-xl sm:text-2xl text-ink leading-relaxed">
+                "Working with Umang and his team was a game-changer for my brand. His clarity in communication, sharp creative instincts, and deep understanding of social media strategy helped me streamline my content and actually see results. What I appreciated most was that he didn't just chase trends, he understood my voice and crafted a presence that felt authentic. If you're looking for someone who blends strategy with soul, Umang is your guy."
+              </blockquote>
+
+              <div class="mt-8 pt-6 border-t border-hairline flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center gap-3.5">
+                  <img
+                    id="test-author-avatar"
+                    src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" src="assets/images/slot-04.jpg" data-bm-src="p4"
+                    alt="Gaurav Sharma in studio"
+                    class="w-12 h-12 object-cover border border-ink"
+                  />
+                  <div>
+                    <div id="test-author-name" class="font-display font-bold text-base text-ink">Gaurav Sharma</div>
+                    <div id="test-author-role" class="text-xs text-inkMuted">YouTube Creator &amp; Music Educator — 210k Subscribers</div>
+                  </div>
+                </div>
+                <a
+                  id="test-external-link"
+                  href="https://www.gauravsharmamusic.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-mono underline text-signal hover:text-ink font-semibold"
+                >
+                  gauravsharmamusic.com ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Right 4 Columns: Client Selector List -->
+            <div class="lg:col-span-4 space-y-2">
+              <p class="font-mono text-xs uppercase text-inkSubtle mb-3">Select client record</p>
+              <button type="button" data-test-idx="0" class="test-select-btn w-full text-left p-4 bg-paper border-l-4 border-l-signal transition-colors">
+                <div class="flex items-center justify-between font-mono text-xs text-signal mb-0.5">
+                  <span>01 / Verified client</span>
+                  <span>210k subs</span>
+                </div>
+                <div class="font-display font-bold text-base text-ink">Gaurav Sharma</div>
+                <div class="text-xs text-inkMuted">YouTube Creator &amp; Music Educator</div>
+              </button>
+
+              <button type="button" data-test-idx="1" class="test-select-btn w-full text-left p-4 hover:bg-paper border-l-4 border-l-transparent transition-colors">
+                <div class="flex items-center justify-between font-mono text-xs text-inkSubtle mb-0.5">
+                  <span>02 / Archive quote</span>
+                  <span>YouTube</span>
+                </div>
+                <div class="font-display font-bold text-base text-ink">Logan</div>
+                <div class="text-xs text-inkMuted">YouTube Creator (handle pending release)</div>
+              </button>
+
+              <button type="button" data-test-idx="2" class="test-select-btn w-full text-left p-4 hover:bg-paper border-l-4 border-l-transparent transition-colors">
+                <div class="flex items-center justify-between font-mono text-xs text-inkSubtle mb-0.5">
+                  <span>03 / Archive quote</span>
+                  <span>Instagram</span>
+                </div>
+                <div class="font-display font-bold text-base text-ink">Alex Thompson</div>
+                <div class="text-xs text-inkMuted">Instagram Creator (handle pending release)</div>
+              </button>
+
+              <p class="pt-3 text-xs text-inkSubtle leading-relaxed">
+                Gaurav Sharma is a verified <strong class="text-ink">beazt</strong> client featured in the video archive above. Quotes from Logan and Alex Thompson are preserved from <code class="font-mono">beaztmotions.vercel.app</code> pending channel link release.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part B: Studio Leadership & Editor Roster Application -->
+        <div id="sec-team" class="pt-20 scroll-mt-24">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            <div class="lg:col-span-7">
+              <p class="font-mono text-xs text-signal uppercase tracking-wider mb-2">Studio &amp; roster</p>
+              <h3 class="font-display font-bold text-2xl sm:text-4xl text-ink leading-tight mb-4">
+                Art-directed by Umang. Built for editors who care about rhythm.
+              </h3>
+              <p class="text-inkMuted text-base leading-relaxed max-w-[60ch] mb-8">
+                <strong class="text-ink font-semibold">beazt</strong> operates as a remote post-production collective. Every cut is reviewed for pacing, audio clarity, and visual consistency before it reaches the client. We are always looking for sharp long-form editors, After Effects motion designers, and thumbnail artists to join our roster.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-hairline">
+                <div>
+                  <span class="font-mono text-xs text-signal uppercase block mb-1">Remote workflow</span>
+                  <strong class="font-display font-bold text-base text-ink block">Cloud handoffs</strong>
+                  <p class="text-sm text-inkMuted mt-1 leading-relaxed">Work from anywhere with structured proxy and project-file handoffs.</p>
+                </div>
+                <div>
+                  <span class="font-mono text-xs text-signal uppercase block mb-1">Predictable pace</span>
+                  <strong class="font-display font-bold text-base text-ink block">Async milestones</strong>
+                  <p class="text-sm text-inkMuted mt-1 leading-relaxed">Flexible hours built around clear 24–48 hour delivery windows.</p>
+                </div>
+                <div>
+                  <span class="font-mono text-xs text-signal uppercase block mb-1">Creative growth</span>
+                  <strong class="font-display font-bold text-base text-ink block">Direct feedback</strong>
+                  <p class="text-sm text-inkMuted mt-1 leading-relaxed">Cut for established YouTube and Instagram creators with competitive per-project rates.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right 5 Columns: Roster Application Form -->
+            <div class="lg:col-span-5 bg-paper p-6 sm:p-8 border border-hairline">
+              <h4 class="font-display font-bold text-lg text-ink mb-1">Join the beazt roster</h4>
+              <p class="text-xs text-inkMuted mb-5">
+                Share your showreel or portfolio link directly with Umang and our production desk.
+              </p>
+              <form id="career-form" class="space-y-3.5">
+                <div>
+                  <label for="career-name" class="block font-mono text-xs text-inkMuted mb-1">Full name *</label>
+                  <input id="career-name" type="text" required placeholder="Your full name" class="w-full min-h-[42px] px-3.5 py-2 text-sm bg-paperLight border border-hairline text-ink" />
+                </div>
+                <div>
+                  <label for="career-role" class="block font-mono text-xs text-inkMuted mb-1">Primary craft *</label>
+                  <select id="career-role" class="w-full min-h-[42px] px-3.5 py-2 text-xs bg-paperLight border border-hairline text-ink font-mono">
+                    <option value="Long-Form Video Editor (Premiere / DaVinci)">Long-Form Video Editor (Premiere / DaVinci)</option>
+                    <option value="Motion Graphics Artist (After Effects)">Motion Graphics Artist (After Effects)</option>
+                    <option value="Short-Form Reels Editor">Short-Form Reels Editor</option>
+                    <option value="Thumbnail Designer (Photoshop)">Thumbnail Designer (Photoshop)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="career-portfolio" class="block font-mono text-xs text-inkMuted mb-1">Showreel / portfolio URL *</label>
+                  <input id="career-portfolio" type="url" required placeholder="https://..." class="w-full min-h-[42px] px-3.5 py-2 text-sm bg-paperLight border border-hairline text-ink" />
+                </div>
+                <button type="submit" class="w-full min-h-[44px] bg-ink hover:bg-signal text-paper text-xs font-semibold uppercase tracking-wider py-3 transition-colors">
+                  Send Roster Application →
+                </button>
+              </form>
+              <div id="career-feedback" class="hidden mt-3 p-3 bg-paperMuted border border-ink text-xs font-mono text-ink"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 5: PROCESS & FAQ                                              -->
+    <!-- ===================================================================== -->
+    <section id="sec-faq" class="view-section border-b border-hairline py-16 sm:py-24 bg-paper">
+      <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+
+          <div class="lg:col-span-4">
+            <p class="font-mono text-xs text-signal uppercase tracking-wider mb-2">Process &amp; FAQ</p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink leading-tight mb-4">
+              How we work from raw upload to final master.
+            </h2>
+            <p class="text-inkMuted text-base leading-relaxed mb-8">
+              Answers to common questions on turnaround times, revision rounds, brand matching, and raw footage transfer.
+            </p>
+            <div class="pt-6 border-t border-hairline">
+              <p class="text-sm text-ink font-semibold mb-1">Need a custom monthly retainer?</p>
+              <p class="text-xs text-inkMuted mb-4 leading-relaxed">
+                Reach out directly and we'll scope a weekly episode and Reels schedule for your channel.
+              </p>
+              <button type="button" data-nav-view="contact" class="nav-view-trigger min-h-[44px] px-5 py-2.5 bg-ink hover:bg-signal text-paper text-xs font-semibold uppercase tracking-wider transition-colors">
+                Contact Us Directly →
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 divide-y divide-hairline border-t border-b border-hairline" id="faq-accordion">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+              <button type="button" data-faq-toggle="0" aria-expanded="true" aria-controls="faq-panel-0" class="faq-btn w-full py-6 flex items-center justify-between text-left gap-4 group">
+                <span class="font-display font-bold text-lg sm:text-xl text-ink group-hover:text-signal transition-colors">
+                  01. How long does it take to edit a video?
+                </span>
+                <span class="faq-icon w-9 h-9 flex items-center justify-center font-mono text-base border border-hairline bg-paperLight shrink-0">−</span>
+              </button>
+              <div id="faq-panel-0" class="pb-6 pr-4 sm:pr-12 text-base text-inkMuted leading-relaxed">
+                Our standard turnaround time is <strong class="text-ink">24–48 hours</strong> for most projects. For multi-cam podcasts or motion-heavy documentary episodes, we set a clear milestone schedule during your initial consultation.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+              <button type="button" data-faq-toggle="1" aria-expanded="false" aria-controls="faq-panel-1" class="faq-btn w-full py-6 flex items-center justify-between text-left gap-4 group">
+                <span class="font-display font-bold text-lg sm:text-xl text-ink group-hover:text-signal transition-colors">
+                  02. Do you provide revisions?
+                </span>
+                <span class="faq-icon w-9 h-9 flex items-center justify-center font-mono text-base border border-hairline bg-paperLight shrink-0">+</span>
+              </button>
+              <div id="faq-panel-1" class="hidden pb-6 pr-4 sm:pr-12 text-base text-inkMuted leading-relaxed">
+                Yes. Every edit includes structured revision rounds so pacing, music cues, motion graphics, and color grading match your exact feedback before final export.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+              <button type="button" data-faq-toggle="2" aria-expanded="false" aria-controls="faq-panel-2" class="faq-btn w-full py-6 flex items-center justify-between text-left gap-4 group">
+                <span class="font-display font-bold text-lg sm:text-xl text-ink group-hover:text-signal transition-colors">
+                  03. Can you match my brand's style?
+                </span>
+                <span class="faq-icon w-9 h-9 flex items-center justify-center font-mono text-base border border-hairline bg-paperLight shrink-0">+</span>
+              </button>
+              <div id="faq-panel-2" class="hidden pb-6 pr-4 sm:pr-12 text-base text-inkMuted leading-relaxed">
+                Before cutting your first video, we study your past uploads, type choices, color LUTs, caption placement, and pacing rhythm to build a dedicated channel preset.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+              <button type="button" data-faq-toggle="3" aria-expanded="false" aria-controls="faq-panel-3" class="faq-btn w-full py-6 flex items-center justify-between text-left gap-4 group">
+                <span class="font-display font-bold text-lg sm:text-xl text-ink group-hover:text-signal transition-colors">
+                  04. What's included in your media services?
+                </span>
+                <span class="faq-icon w-9 h-9 flex items-center justify-center font-mono text-base border border-hairline bg-paperLight shrink-0">+</span>
+              </button>
+              <div id="faq-panel-3" class="hidden pb-6 pr-4 sm:pr-12 text-base text-inkMuted leading-relaxed">
+                We handle long-form video editing (vlogs, short films, ads, documentaries), multi-mic audio/video sync and pacing, Rec.709 color correction, custom After Effects motion graphics, 9:16 YouTube/Instagram Reels, and high-CTR thumbnail design.
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+              <button type="button" data-faq-toggle="4" aria-expanded="false" aria-controls="faq-panel-4" class="faq-btn w-full py-6 flex items-center justify-between text-left gap-4 group">
+                <span class="font-display font-bold text-lg sm:text-xl text-ink group-hover:text-signal transition-colors">
+                  05. How do I send you my footage?
+                </span>
+                <span class="faq-icon w-9 h-9 flex items-center justify-center font-mono text-base border border-hairline bg-paperLight shrink-0">+</span>
+              </button>
+              <div id="faq-panel-4" class="hidden pb-6 pr-4 sm:pr-12 text-base text-inkMuted leading-relaxed">
+                Share raw files via Google Drive, Frame.io, Dropbox, or WeTransfer. When you book a call or submit a brief below, paste your folder link directly for review.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 6: BOOK A CONSULTATION CALL (INTERACTIVE SCHEDULER)           -->
+    <!-- ===================================================================== -->
+    <section id="sec-booking" class="view-section border-b border-hairline py-16 sm:py-24 bg-paperLight">
+      <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+
+        <div class="mb-10 pb-6 border-b border-hairline flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <div>
+            <p class="font-mono text-xs text-signal uppercase tracking-wider mb-2">Schedule a call</p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink">
+              Book a 1-on-1 production consultation.
+            </h2>
+          </div>
+          <p class="text-sm text-inkMuted max-w-[46ch]">
+            Pick a date and 24-hour slot below to scope your edit with Umang and receive an instant <code class="font-mono text-xs">.ics</code> calendar invite.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 border border-ink bg-paper">
+
+          <!-- Left 5 Columns: Interactive Calendar Date Picker -->
+          <div class="lg:col-span-5 p-6 sm:p-8 lg:border-r border-hairline flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-mono text-xs uppercase tracking-wider text-ink font-semibold">01 / Date</span>
+                <div class="flex items-center gap-2">
+                  <button type="button" id="cal-prev-month" aria-label="Previous month" class="min-w-[40px] min-h-[40px] px-3 py-1.5 border border-hairline bg-paperLight hover:bg-paperMuted font-mono text-sm">
+                    ‹
+                  </button>
+                  <span id="cal-month-label" class="font-display font-bold text-base text-ink min-w-[135px] text-center">October 2026</span>
+                  <button type="button" id="cal-next-month" aria-label="Next month" class="min-w-[40px] min-h-[40px] px-3 py-1.5 border border-hairline bg-paperLight hover:bg-paperMuted font-mono text-sm">
+                    ›
+                  </button>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-7 text-center font-mono text-xs text-inkSubtle pb-2.5 border-b border-hairline">
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+              </div>
+
+              <div id="calendar-days-grid" class="grid grid-cols-7 gap-1.5 pt-3 font-mono text-xs"></div>
+            </div>
+
+            <div class="mt-8 pt-5 border-t border-hairline space-y-2 text-xs text-inkMuted font-mono">
+              <div class="flex items-center justify-between">
+                <span>Date:</span>
+                <strong id="selected-date-display" class="text-ink">Sunday, Oct 18, 2026</strong>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Slot:</span>
+                <strong id="selected-slot-display" class="text-signal">11:00 (EST)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right 7 Columns: Timezone, 16 Time Slots (09:00-00:00), & Client Details -->
+          <div class="lg:col-span-7 p-6 sm:p-8 bg-paperLight">
+            <form id="booking-form" class="space-y-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="booking-timezone" class="block font-mono text-xs uppercase tracking-wider text-ink font-semibold mb-2">
+                    02 / Timezone
+                  </label>
+                  <select id="booking-timezone" class="w-full min-h-[44px] px-3.5 py-2.5 bg-paper border border-hairline font-mono text-xs text-ink">
+                    <option value="EST (Eastern Standard Time)">EST (Eastern Standard Time)</option>
+                    <option value="IST (India Standard Time · UTC+5:30)">IST (India Standard Time · UTC+5:30)</option>
+                    <option value="PST (Pacific Standard Time)">PST (Pacific Standard Time)</option>
+                    <option value="GMT / UTC (London)">GMT / UTC (London)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="booking-focus" class="block font-mono text-xs uppercase tracking-wider text-ink font-semibold mb-2">
+                    03 / Project scope
+                  </label>
+                  <select id="booking-focus" class="w-full min-h-[44px] px-3.5 py-2.5 bg-paper border border-hairline font-mono text-xs text-ink">
+                    <option value="Flagship Video Editing (Long-Form)">Flagship Video Editing (Long-Form)</option>
+                    <option value="YouTube / Instagram Reels Batch">YouTube / Instagram Reels Batch</option>
+                    <option value="Motion Graphics & Visual Effects">Motion Graphics &amp; Visual Effects</option>
+                    <option value="High-CTR Thumbnail Package">High-CTR Thumbnail Package</option>
+                    <option value="Full Channel Retainer">Full Channel Retainer</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="font-mono text-xs uppercase tracking-wider text-ink font-semibold">
+                    04 / Time slot (24h)
+                  </span>
+                  <span class="font-mono text-xs text-inkMuted">30-minute consultation</span>
+                </div>
+                <div id="time-slots-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs"></div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-hairline">
+                <div>
+                  <label for="booking-name" class="block font-mono text-xs text-inkMuted mb-1.5">Full name *</label>
+                  <input id="booking-name" type="text" required placeholder="Your name" class="w-full min-h-[44px] px-3.5 py-2.5 bg-paper border border-hairline text-sm text-ink" />
+                </div>
+                <div>
+                  <label for="booking-email" class="block font-mono text-xs text-inkMuted mb-1.5">Email address *</label>
+                  <input id="booking-email" type="email" required placeholder="you@channel.com" class="w-full min-h-[44px] px-3.5 py-2.5 bg-paper border border-hairline text-sm text-ink" />
+                </div>
+              </div>
+
+              <div>
+                <label for="booking-footage" class="block font-mono text-xs text-inkMuted mb-1.5">
+                  Channel URL or raw footage link (optional)
+                </label>
+                <input id="booking-footage" type="text" placeholder="https://youtube.com/@yourchannel or Drive folder link" class="w-full min-h-[44px] px-3.5 py-2.5 bg-paper border border-hairline text-sm text-ink" />
+              </div>
+
+              <button type="submit" class="w-full min-h-[48px] bg-signal hover:bg-signalHover text-white text-xs sm:text-sm font-semibold uppercase tracking-wider py-4 transition-colors">
+                Confirm Appointment →
+              </button>
+            </form>
+
+            <!-- Booking Confirmation Receipt Box -->
+            <div id="booking-confirmation" class="hidden mt-6 p-5 border border-ink bg-paper space-y-4">
+              <div class="flex items-center justify-between border-b border-hairline pb-3">
+                <span class="font-mono text-xs uppercase tracking-wider text-trackEmerald font-semibold">
+                  ✓ Consultation slot reserved with beazt
+                </span>
+                <span id="booking-ref-id" class="font-mono text-xs text-inkMuted">REF #BZ-2026</span>
+              </div>
+              <p id="booking-summary-text" class="text-sm text-ink leading-relaxed"></p>
+              <div class="flex flex-wrap items-center gap-3 pt-2">
+                <button type="button" id="btn-download-ics" class="min-h-[42px] px-4 py-2.5 bg-ink text-paper font-mono text-xs uppercase tracking-wider hover:bg-signal transition-colors">
+                  Download Calendar Invite (.ICS)
+                </button>
+                <a id="booking-wa-followup" href="https://wa.me/917983652995" target="_blank" rel="noopener noreferrer" class="min-h-[42px] inline-flex items-center px-4 py-2.5 border border-ink text-ink font-mono text-xs uppercase tracking-wider hover:bg-paperMuted transition-colors">
+                  Send Details via WhatsApp →
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 7: DIRECT CONTACT & CHANNELS                                  -->
+    <!-- ===================================================================== -->
+    <section id="sec-contact" class="view-section py-16 sm:py-24 border-b border-hairline bg-paper">
+      <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+          <!-- Left 5 Columns: Direct Studio Channels -->
+          <div class="lg:col-span-5 space-y-8">
+            <div>
+              <p class="font-mono text-xs text-signal uppercase tracking-wider mb-2">Contact</p>
+              <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink leading-tight mb-3">
+                Start a project or send a raw folder.
+              </h2>
+              <p class="text-inkMuted text-base leading-relaxed">
+                Write to our production desk directly or reach out on WhatsApp for same-day turnaround availability.
+              </p>
+            </div>
+
+            <div class="border-t border-hairline divide-y divide-hairline">
+              <a href="mailto:contact@beaztmotions.org" class="py-4 flex items-center justify-between group">
+                <div>
+                  <span class="font-mono text-xs uppercase text-inkSubtle block">Email</span>
+                  <span class="font-display font-bold text-base text-ink group-hover:text-signal transition-colors">contact@beaztmotions.org</span>
+                </div>
+                <span class="font-mono text-xs text-inkMuted">↗</span>
+              </a>
+              <a href="https://wa.me/917983652995" target="_blank" rel="noopener noreferrer" class="py-4 flex items-center justify-between group">
+                <div>
+                  <span class="font-mono text-xs uppercase text-inkSubtle block">WhatsApp</span>
+                  <span class="font-display font-bold text-base text-ink group-hover:text-signal transition-colors">+91-7983652995</span>
+                </div>
+                <span class="font-mono text-xs text-inkMuted">↗</span>
+              </a>
+              <a href="https://www.instagram.com/beaztmotions" target="_blank" rel="noopener noreferrer" class="py-4 flex items-center justify-between group">
+                <div>
+                  <span class="font-mono text-xs uppercase text-inkSubtle block">Instagram</span>
+                  <span class="font-display font-bold text-base text-ink group-hover:text-signal transition-colors">@beaztmotions</span>
+                </div>
+                <span class="font-mono text-xs text-inkMuted">↗</span>
+              </a>
+              <a href="https://www.linkedin.com/company/beaztmotions" target="_blank" rel="noopener noreferrer" class="py-4 flex items-center justify-between group">
+                <div>
+                  <span class="font-mono text-xs uppercase text-inkSubtle block">LinkedIn</span>
+                  <span class="font-display font-bold text-base text-ink group-hover:text-signal transition-colors">linkedin.com/company/beaztmotions</span>
+                </div>
+                <span class="font-mono text-xs text-inkMuted">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right 7 Columns: Project Brief Form -->
+          <div class="lg:col-span-7 border border-ink bg-paperLight p-6 sm:p-10">
+            <h3 class="font-display font-bold text-2xl text-ink mb-6">Send a project brief</h3>
+            <form id="contact-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="contact-name" class="block font-mono text-xs text-inkMuted mb-1.5">Name *</label>
+                  <input id="contact-name" type="text" required placeholder="Your name" class="w-full min-h-[44px] px-3.5 py-2.5 bg-paper border border-hairline text-sm text-ink" />
+                </div>
+                <div>
+                  <label for="contact-email" class="block font-mono text-xs text-inkMuted mb-1.5">Email *</label>
+                  <input id="contact-email" type="email" required placeholder="you@domain.com" class="w-full min-h-[44px] px-3.5 py-2.5 bg-paper border border-hairline text-sm text-ink" />
+                </div>
+              </div>
+              <div>
+                <label for="contact-message" class="block font-mono text-xs text-inkMuted mb-1.5">Project details &amp; target turnaround *</label>
+                <textarea id="contact-message" rows="4" required placeholder="Tell us about your channel format, footage length, and deadline..." class="w-full px-3.5 py-2.5 bg-paper border border-hairline text-sm text-ink"></textarea>
+              </div>
+              <button type="submit" class="w-full min-h-[48px] bg-ink hover:bg-signal text-paper text-xs sm:text-sm font-semibold uppercase tracking-wider py-3.5 transition-colors">
+                Send Message →
+              </button>
+            </form>
+            <div id="contact-feedback" class="hidden mt-4 p-4 border border-ink bg-paper text-xs font-mono text-ink"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- STUDIO FOOTER                                                         -->
+  <!-- ===================================================================== -->
+  <footer class="cinema-surface border-t border-cinemaBorder pt-14 pb-10">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-cinemaBorder">
+
+        <div class="md:col-span-5">
+          <div class="font-display font-bold text-3xl tracking-tighter text-white lowercase mb-3">
+            beazt<span class="text-signal">.</span>
+          </div>
+          <p class="text-stone-300 text-sm max-w-[40ch] leading-relaxed mb-4">
+            Independent video editing, motion design, and thumbnail studio led by Umang. Built for creators and brands publishing on a 24–48 hour turnaround.
+          </p>
+        </div>
+
+        <div class="md:col-span-3">
+          <h3 class="font-mono text-xs uppercase tracking-wider text-stone-400 mb-4">Navigation</h3>
+          <ul class="space-y-2.5 text-sm text-stone-300">
+            <li><button type="button" data-nav-view="overview" class="nav-view-trigger hover:text-white transition-colors">Index</button></li>
+            <li><button type="button" data-nav-view="work" class="nav-view-trigger hover:text-white transition-colors">Selected work</button></li>
+            <li><button type="button" data-nav-view="services" class="nav-view-trigger hover:text-white transition-colors">Capabilities &amp; estimator</button></li>
+            <li><button type="button" data-dropdown-target="sec-about" class="about-dropdown-item hover:text-white transition-colors">Client notes</button></li>
+            <li><button type="button" data-dropdown-target="sec-team" class="about-dropdown-item hover:text-white transition-colors">Join the roster</button></li>
+            <li><button type="button" data-nav-view="booking" class="nav-view-trigger text-signal font-semibold hover:underline">Book a call →</button></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4">
+          <h3 class="font-mono text-xs uppercase tracking-wider text-stone-400 mb-4">Direct desk</h3>
+          <ul class="space-y-2.5 text-xs font-mono text-stone-300">
+            <li><a href="mailto:contact@beaztmotions.org" class="hover:text-white underline decoration-stone-600">contact@beaztmotions.org</a></li>
+            <li><a href="https://wa.me/917983652995" target="_blank" rel="noopener noreferrer" class="hover:text-white underline decoration-stone-600">WhatsApp +91-7983652995</a></li>
+            <li><a href="https://www.instagram.com/beaztmotions" target="_blank" rel="noopener noreferrer" class="hover:text-white underline decoration-stone-600">Instagram @beaztmotions</a></li>
+            <li><a href="https://www.linkedin.com/company/beaztmotions" target="_blank" rel="noopener noreferrer" class="hover:text-white underline decoration-stone-600">linkedin.com/company/beaztmotions</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-stone-400">
+        <div>© 2024–2026 beazt (beaztmotions.org). All rights reserved.</div>
+        <div>Client edits © beazt &amp; respective creators · Format reference stills licensed via Pexels &amp; Unsplash.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL: PORTFOLIO VIDEO PLAYER                                         -->
+  <!-- ===================================================================== -->
+  <div id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-proj-title" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-cinema text-paper border border-stone-600 max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="bg-cinemaElevated px-5 py-3.5 flex items-center justify-between border-b border-cinemaBorder">
+        <div class="flex items-center gap-2.5 font-mono text-xs">
+          <span id="modal-proj-badge" class="px-2 py-0.5 bg-signal text-white font-medium">beazt cut</span>
+          <span id="modal-proj-code" class="text-stone-300">BZ-01</span>
+        </div>
+        <button type="button" id="close-project-modal" aria-label="Close modal" class="min-h-[36px] font-mono text-xs px-3 py-1 border border-cinemaBorder text-stone-300 hover:text-white">
+          ESC / CLOSE ×
+        </button>
+      </div>
+
+      <div class="p-6 space-y-5">
+        <div id="modal-media-container" class="aspect-16-9 bg-black overflow-hidden border border-cinemaBorder relative">
+          <video
+            id="modal-proj-video"
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" src="assets/video/showreel.mp4" data-bm-src="reel"
+            poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" poster="assets/images/slot-01.jpg" data-bm-poster="p1"
+            controls
+            playsinline
+            class="w-full h-full object-cover"
+          ></video>
+          <img id="modal-proj-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='9'><rect width='16' height='9' fill='%23111110'/></svg>" src="assets/images/slot-01.jpg" data-bm-src="p1" alt="Project preview frame" class="hidden w-full h-full object-cover" />
+          <iframe id="modal-proj-iframe" title="Project Video Embed" class="hidden w-full h-full" allowfullscreen></iframe>
+        </div>
+
+        <div class="flex flex-wrap items-start justify-between gap-4 border-b border-cinemaBorder pb-4">
+          <div>
+            <h3 id="modal-proj-title" class="font-display font-bold text-2xl text-white">Project Title</h3>
+            <p id="modal-proj-sub" class="font-mono text-xs text-stone-300 mt-1">Category &amp; Deliverable Spec</p>
+          </div>
+          <a id="modal-proj-source-link" href="https://www.instagram.com/beaztmotions" target="_blank" rel="noopener noreferrer" class="min-h-[38px] inline-flex items-center px-3.5 py-1.5 border border-cinemaBorder text-stone-200 hover:border-signal hover:text-white font-mono text-xs transition-colors">
+            View creator / source ↗
+          </a>
+        </div>
+
+        <p id="modal-proj-desc" class="text-sm sm:text-base text-stone-300 leading-relaxed"></p>
+
+        <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-cinemaBorder">
+          <span class="font-mono text-xs text-stone-400">Turnaround for similar scope: <strong class="text-white">24–48 hours</strong></span>
+          <button type="button" id="modal-book-similar-btn" class="min-h-[42px] px-5 py-2 bg-signal hover:bg-signalHover text-white text-xs font-semibold uppercase tracking-wider transition-colors">
+            Book similar edit →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- APPLICATION JAVASCRIPT                                                -->
+  <!-- ===================================================================== -->
+  <script src="js/app.js" onerror="var s=document.createElement('script');s.src='app.js';document.body.appendChild(s);"></script>
+</body>
+</html>
